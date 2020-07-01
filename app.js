@@ -16,7 +16,10 @@ app.set('view engine', 'handlebars')
 
 // 設定middleware訊息內容
 function timeStamp (req) {
-  console.log(`${new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' })} | ${req.method} from ${req.originalUrl}`)
+  // console.time('time') // 顯示更精確時間，確認用
+  const start = new Date()
+  console.log(`${new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' })} | ${req.method} from ${req.originalUrl} | total time: ${new Date() - start}ms`)
+  // console.timeEnd('time') // 顯示更精確時間，確認用
 }
 
 // 避免出現'GET from /favicon.ico'
