@@ -8,11 +8,11 @@ app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 
 // 設定 view engine
-app.engine('handlebars', exphbs({
+app.set('view engine', 'hbs')
+app.engine('hbs', exphbs({
   extname: '.hbs',
   defaultLayout: 'main'
 }))
-app.set('view engine', 'handlebars')
 
 // 設定middleware訊息內容
 function timeStamp (req) {
